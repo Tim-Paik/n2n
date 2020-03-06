@@ -6,7 +6,8 @@
 #define GROUPNAME "dhwpcs"//填写组名
 #define PASSWORD "dhwpcs"//填写密码
 #define SUPERNODEIP "103.205.253.66"//此项为SuperNode服务器IP(公网)
-#define SUPERNODEPORT "10111"//此项为SuperNode服务器端口
+#define SUPERNODEPORT "10120"//此项为SuperNode服务器端口
+#define OTHERARG " -r -A"//其他参数
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
@@ -28,7 +29,7 @@ int main(int argc, char *argv[]) {
 	sprintf(edgedir,"%s%s",temp,"edge.exe");//定义edge.exe目录
 	sprintf(tapdir,"%s%s",temp,"tap-windows.exe");//定义tap-windows.exe安装包目录
 	sprintf(vbedir,"%s%s",temp,"start.vbe");//定义自启动vbe目录	
-	sprintf(edgearg,"%s%s%s%s%s%s%s%s%s%s%s",DHCP," -a ",IPADRESS," -c ",GROUPNAME," -k ",PASSWORD," -l ",SUPERNODEIP,":",SUPERNODEPORT);//定义静默启动vbe参数
+	sprintf(edgearg,"%s%s%s%s%s%s%s%s%s%s%s%s",DHCP," -a ",IPADRESS," -c ",GROUPNAME," -k ",PASSWORD," -l ",SUPERNODEIP,":",SUPERNODEPORT,OTHERARG);//定义静默启动vbe参数
 	sprintf(startdir,"%s%s%s%s%s%s","CreateObject(\"WScript.Shell\").Run \"cmd /c ","\"\"",edgedir,"\"\" ",edgearg,"\",0");//定义静默启动vbe内容
 	sprintf(regdir,"%s%s%s","\"",vbedir,"\"");//定义自启动vbe目录
 start:
